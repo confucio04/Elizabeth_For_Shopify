@@ -13,11 +13,13 @@
           </div>
           <!-- NAVIGATION MENU -->
           <nav class="hidden md:flex space-x-10">
-              {% if section.settings.menu.links == blank %}
-                  {% assign main_menu_linklist = linklists[section.settings.menu].links %}
-              {% else %}
-                  {% assign main_menu_linklist = section.settings.menu.links %}
-              {% endif %}
+            {%- liquid
+                    if section.settings.menu.links == blank 
+                        assign main_menu_linklist = linklists[section.settings.menu].links 
+                    else 
+                        assign main_menu_linklist = section.settings.menu.links 
+                    endif 
+              -%}
               {% for link in main_menu_linklist %}
                   {% if link.links != blank %}
                       {% assign link_handle = link.handle | replace: '-', '_' %}
@@ -93,11 +95,13 @@
                       <!-- NAVIGATION LINKS FOR MOBILE MENU -->
                       <div class="pt-3">
                           <nav class="grid gap-y-7">
-                              {% if section.settings.menu.links == blank %}
-                                  {% assign main_menu_linklist = linklists[section.settings.menu].links %}
-                              {% else %}
-                                  {% assign main_menu_linklist = section.settings.menu.links %}
-                              {% endif %}
+                            {%- liquid
+                               if section.settings.menu.links == blank 
+                                   assign main_menu_linklist = linklists[section.settings.menu].links 
+                               else 
+                                   assign main_menu_linklist = section.settings.menu.links 
+                               endif 
+                              -%}
                               {% for link in main_menu_linklist %}
                                   {% if link.links != blank %}
                                   {% assign mobile_link_handle = link.handle | replace: '-', '_' %}

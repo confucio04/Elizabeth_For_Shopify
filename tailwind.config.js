@@ -1,15 +1,15 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./layout/**/*.liquid",
-    "./sections/**/*.liquid",
-    "./snippets/**/*.liquid",
-    "./templates/customers/*.liquid",
-    "./templates/**/*.liquid",
-  ],
+  purge: [],
+  darkMode: 'media', // Cambiado de media a 'media'
   theme: {
+    extend: {
+      height: {
+        '94': '22rem',
+      },
+    },
+  },
+  variants: {
     extend: {},
   },
   plugins: [],
 }
-

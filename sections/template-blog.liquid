@@ -14,8 +14,8 @@
                                         src="{{ article.image | image_url: 'medium' }}                                        " 
                                         alt="{{ article.image.alt }}" 
                                         loading="lazy"
-                                        width="estimated-width"
-                                        height="estimated-height">                                   
+                                        width="300"
+                                        height="225">                                   
                                 </a>
                             {% else %}
                                 {{ 'image' | placeholder_svg_tag: 'w-full h-80 object-cover bg-gray-100' }}

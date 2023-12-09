@@ -11,11 +11,11 @@
                             {% if article.image %}
                                 <a href="{{ article.url }}">
                                     <img class="w-full h-80 object-cover" 
-                                        src="{{ article.image | image_url: 'medium' }}                                        " 
+                                        src="{{ article.image | image_url: width: 150 }}" 
                                         alt="{{ article.image.alt }}" 
                                         loading="lazy"
                                         width="300"
-                                        height="150">                                   
+                                        height="150" />                                   
                                 </a>
                             {% else %}
                                 {{ 'image' | placeholder_svg_tag: 'w-full h-80 object-cover bg-gray-100' }}

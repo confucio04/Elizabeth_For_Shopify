@@ -28,7 +28,7 @@
                 <div itemprop="image" class="max-w-7xl bg-blue-100 rounded-lg mx-2 md:mx-auto overflow-hidden my-4">
                     {% if article.image != blank %}
                         <img class="w-full h-80 md:h-96 object-cover object-center" 
-                            src="{{ article.image | image_url: width: 480, height: 480 }}" 
+                            src="{{ article.image | image_url: width: 300, height: 150 }}" 
                             loading="eager"
                             alt="{{ article.image.alt }}" 
                             width="300"  

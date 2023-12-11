@@ -13,11 +13,13 @@
             </div>
             <!-- NAVIGATION MENU -->
             <nav class="hidden md:flex space-x-10">
-                {% if section.settings.menu.links == blank %}
-                    {% assign main_menu_linklist = linklists[section.settings.menu].links %}
-                {% else %}
-                    {% assign main_menu_linklist = section.settings.menu.links %}
-                {% endif %}
+                {%liquid 
+                    if section.settings.menu.links == blank 
+                        assign main_menu_linklist = linklists[section.settings.menu].links
+                    else
+                        assign main_menu_linklist = section.settings.menu.links 
+                    endif 
+                %}
                 {% for link in main_menu_linklist %}
                     {% if link.links != blank %}
                         {% assign link_handle = link.handle | replace: '-', '_' %}
@@ -64,7 +66,7 @@
                 {% if shop.customer_accounts_enabled %}
                     {% if customer %}
                         <a href="{{ routes.account_url }}" class="text-base text-gray-500 hover:text-gray-900">account</a>
-                        {{ 'Log out'  | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                        {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
                     {% else %}
                         {{ 'Log in ' | customer_login_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
                         {{ 'Register' | customer_register_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
@@ -93,11 +95,13 @@
                         <!-- NAVIGATION LINKS FOR MOBILE MENU -->
                         <div class="pt-3">
                             <nav class="grid gap-y-7">
-                                {% if section.settings.menu.links == blank %}
-                                    {% assign main_menu_linklist = linklists[section.settings.menu].links %}
-                                {% else %}
-                                    {% assign main_menu_linklist = section.settings.menu.links %}
-                                {% endif %}
+                                {% liquid 
+                                    if section.settings.menu.links == blank 
+                                        assign main_menu_linklist = linklists[section.settings.menu].links 
+                                    else 
+                                        assign main_menu_linklist = section.settings.menu.links 
+                                    endif 
+                                %}
                                 {% for link in main_menu_linklist %}
                                     {% if link.links != blank %}
                                     {% assign mobile_link_handle = link.handle | replace: '-', '_' %}
@@ -134,20 +138,20 @@
 
 {% schema %}
 {
-    "name": "Header",
-    "settings": [
-        {
-            "type": "text",
-            "id": "mobile_menu_title",
-            "default": "Menu",
-            "label": "Mobile Menu Title"
-        },
-        {
-            "type": "link_list",
-            "id": "menu",
-            "default": "main-menu",
-            "label": "Heading Navigation Menu"
-        }
-    ]
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "mobile_menu_title",
+      "default": "Menu",
+      "label": "Mobile Menu Title"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Heading Navigation Menu"
+    }
+  ]
 }
 {% endschema %}

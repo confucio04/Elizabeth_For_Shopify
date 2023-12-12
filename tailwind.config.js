@@ -1,6 +1,13 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./layout/**/*.liquid",
+    "./sections/**/*.liquid",
+    "./snippets/**/*.liquid",
+    "./templates/customers/*.liquid",
+    "./templates/**/*.liquid",
+  ],
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       height: {

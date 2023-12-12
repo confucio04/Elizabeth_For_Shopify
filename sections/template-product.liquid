@@ -1,4 +1,4 @@
- {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}"
+ {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script> 
   
 <style>
@@ -45,16 +45,17 @@
 
 
 <script>
-    const swiper = new Swiper('.swiper', {
-        direction: 'horizontal',
-
-        pagination: {
-            el: '.swiper-pagination'
-        },
-
-        navigation: {
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next'
-        }
-    })
+    document.addEventListener('DOMContentLoaded', function () {
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            pagination: {
+                el: '.swiper-pagination'
+            },
+            navigation: {
+                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next'
+            }
+        });
+    });
+    
 </script>
